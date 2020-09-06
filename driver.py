@@ -35,6 +35,6 @@ class AppWindow:
         self.videoProcessor.rawStream.release()
         self.root.quit()
 
-win = AppWindow(tkinter.Tk(), "cum")
+win = AppWindow(tkinter.Tk(), "CodeTalker")
 win.root.mainloop()
 win.onClose()
