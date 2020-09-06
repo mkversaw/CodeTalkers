@@ -6,6 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import copy
 import cv2
+import hashlib
 
 # Disable tensorflow compilation warnings
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
@@ -86,7 +87,8 @@ with tf.Session() as sess:
                     else:
                         sequence += res
                         if(password in sequence):
-                            print("unlocked")
+                            print("password found in sequence: unlocked!")
+                            break
                     consecutive = 0
             i += 1
             cv2.putText(img, '%s' % (res.upper()), (100,400), cv2.FONT_HERSHEY_SIMPLEX, 4, (255,255,255), 4)
