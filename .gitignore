@@ -99,3 +99,11 @@ ENV/
 
 # mypy
 .mypy_cache/
+*.txt
+logs/imagenet/inception-2015-12-05.tgz
+=/LICENSE
+=/inception-2015-12-05.tgz
+=/cropped_panda.jpg
+logs/imagenet/cropped_panda.jpg
+logs/training_summaries/basic/train/events.out.tfevents.1599362366.DESKTOP-8K6945B
+logs/training_summaries/basic/validation/events.out.tfevents.1599362368.DESKTOP-8K6945B

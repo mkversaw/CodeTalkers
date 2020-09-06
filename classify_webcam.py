@@ -81,6 +81,7 @@ with tf.Session() as sess:
                         sequence = sequence[:-1]
                     else:
                         sequence += res
+                        print("test",res)
                     consecutive = 0
             i += 1
             cv2.putText(img, '%s' % (res.upper()), (100,400), cv2.FONT_HERSHEY_SIMPLEX, 4, (255,255,255), 4)
