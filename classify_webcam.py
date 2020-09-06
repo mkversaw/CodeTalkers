@@ -11,6 +11,10 @@ import cv2
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 import tensorflow as tf
 
+file1 = open("password.txt", "r")
+password=file1.read()
+file1.close()
+
 def predict(image_data):
 
     predictions = sess.run(softmax_tensor, \
@@ -78,10 +82,11 @@ with tf.Session() as sess:
                     if res == 'space':
                         sequence += ' '
                     elif res == 'del':
-                        sequence = sequence[:-1]
+                        sequence = ''
                     else:
                         sequence += res
-                        print("test",res)
+                        if(password in sequence):
+                            print("unlocked")
                     consecutive = 0
             i += 1
             cv2.putText(img, '%s' % (res.upper()), (100,400), cv2.FONT_HERSHEY_SIMPLEX, 4, (255,255,255), 4)

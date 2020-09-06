@@ -10,11 +10,16 @@ class SymbolDisplay:
         self.container.place(relwidth = 1, relheight = self.relativeHeight)
         #initialize the components of the symbol display
         #first, whether or not the user wants to encrypt/decrypt
-        self.logoContainer = tkinter.Label(self.container)
-        self.logoImage = tkinter.PhotoImage(file="filenamehere.gif")
-        self.logoContainer.configure(image = self.logoImage)
-        self.logoContainer.image = self.logoImage
-        self.logoContainer.place(relx = 0.8, rely = 0, relwidth = 0.2, relheight = 1)
+        self.encDecContainer = tkinter.Frame(self.container)
+        self.encDecContainer.place(relx = 0.8, rely = 0, relwidth = 0.2, relheight = 1)
+        self.encDecVar = tkinter.IntVar()
+        self.encryptRadio = tkinter.Radiobutton(self.encDecContainer)
+        self.encryptRadio.configure(text = "Encrypt", variable = self.encDecVar, value = 1)
+        self.encryptRadio.place(relx = 0, rely = 0, relwidth = 1, relheight = 0.5)
+        self.decryptRadio = tkinter.Radiobutton(self.encDecContainer)
+        self.decryptRadio.configure(text = "Decrypt", variable = self.encDecVar, value = 2)
+        self.decryptRadio.place(relx = 0, rely = 0.5, relwidth = 1, relheight = 0.5)
+        self.encryptRadio.select()
         #then, the boxes for password & message
         self.inputContainer = tkinter.Frame(self.container)
         self.inputContainer.place(relx = 0.2, rely = 0, relwidth = 0.6, relheight = 1)
